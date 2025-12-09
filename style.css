@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; background:#f4f4f4; text-align:center; padding:40px;}
+.container { background:white; padding:25px; border-radius:12px; max-width:400px; margin:auto; box-shadow:0 0 10px rgba(0,0,0,0.15);}
+button { margin-top:20px; padding:12px 20px; font-size:18px; border:none; background:#ff8800; color:white; border-radius:8px; cursor:pointer;}
+button:hover { background:#e57400;}
+.dice-wrapper { margin-top:20px;}
+.dice { width:120px; animation-duration:0.7s;}
+.spin { animation-name: spinDice;}
+@keyframes spinDice {0%{transform:rotate(0);}20%{transform:rotate(180deg);}40%{transform:rotate(0deg);}60%{transform:rotate(360deg);}80%{transform:rotate(180deg);}100%{transform:rotate(0);}}
+.result { margin-top:25px; font-size:22px; font-weight:bold;}
