@@ -1,0 +1,9 @@
+JengaMania - Installatiehandleiding
+
+1. Ga naar https://vercel.com
+2. Klik "New Project"
+3. Upload de map-inhoud uit dit ZIP-bestand
+4. Noem het project: jengamania
+5. Deploy — klaar!
+
+Gebruik de QR URLs uit qr_codes.xlsx

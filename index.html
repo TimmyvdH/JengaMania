@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JengaMania Opdracht</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f4f4; padding:30px; }
+        #container { max-width:400px; margin:auto; background:white; padding:20px; 
+            border-radius:12px; text-align:center; box-shadow:0 0 15px rgba(0,0,0,0.1); }
+        button { padding:12px 20px; font-size:18px; border:none; background:#007bff; 
+            color:white; border-radius:6px; cursor:pointer; }
+        button:hover { background:#005fcc; }
+        .opdracht { margin-top:20px; font-size:20px; font-weight:bold; }
+        img { width:120px; margin-top:20px; display:none; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Gooi de dobbelsteen</h2>
+        <p id="kaartinfo"></p>
+        <button onclick="gooiDobbel()">Gooi dobbelsteen</button>
+        <br />
+        <img id="dice" src="" alt="dobbelsteen" />
+        <div class="opdracht" id="opdracht"></div>
+    </div>
+
+    <script src="opdrachten.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const kaart = urlParams.get("kaart");
+
+        document.getElementById("kaartinfo").innerText = kaart
+            ? "Kaart nummer: " + kaart
+            : "Geen kaartnummer gevonden";
+
+        function gooiDobbel() {
+            if (!kaart || !opdrachten[kaart]) {
+                document.getElementById("opdracht").innerText = "Geen geldige kaart!";
+                return;
+            }
+
+            const dobbel = Math.floor(Math.random() * 4);
+            const resultaat = opdrachten[kaart][dobbel];
+
+            // dice image
+            const diceImg = document.getElementById("dice");
+            const sides = ["1", "2", "3", "4"];
+            diceImg.src = "dice_" + sides[dobbel] + ".png";
+            diceImg.style.display = "block";
+
+            document.getElementById("opdracht").innerText = resultaat;
+        }
+    </script>
+</body>
+</html>
